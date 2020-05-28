@@ -15,30 +15,18 @@ See [versions.tf](versions.tf) for required Terraform providers
 ### Example
 
 ```hcl
-module _direct_connect" {
-  source = "git:https://github.com/pureport/terraform-pureport-network//modules/aws_direct_connect"
 
-    connection_speed = var.speed
-
-      // AWS Direct Connect settings
-        aws_region         = var.aws_region
-          aws_account_id     = var.aws_account_id
-            aws_vpn_gateway_id = module.aws_network.vgw_id
-
-              // Pureport network properties
-                pureport_network_href = module.pureport_network.href
-                }
-                google_cloud_interconnect" {
-  source = "./modules/google_cloud_interconnect"
-
-  // Connection properties for connecting two networks
-  connection_speed = var.speed
-
-  // Google Cloud network properties 
-  gcp_network_name = module.google_cloud_network.network_name
+module "aws_direct_connect" {
+  source = "git::https://github.com/pureport/terraform-pureport-network//modules/aws_direct_connect"
 
   // Pureport network properties
-  pureport_network_href = module.pureport_network.href
+  pureport_connection_speed = 50
+  pureport_network_href     = module.pureport_network.href
+
+  // AWS Direct Connect settings
+  aws_region         = var.aws_region
+  aws_account_id     = var.aws_account_id
+  aws_vpn_gateway_id = module.aws_network.vgw_id
 }
 
 ```
@@ -47,7 +35,7 @@ module _direct_connect" {
 
 | Name                         | Description                                                       | Type   | Default | Required |
 | ---------------------------- | ----------------------------------------------------------------- | ------ | ------- | -------- |
-| connection_speed             | The speed of the connect expressed in Mbps                        | number | null    | yes      |
+| pureport_connection_speed             | The speed of the connect expressed in Mbps                        | number | null    | yes      |
 | aws_account_id               | The AWS account ID to create this connection under                | string | null    | yes      |
 | aws_region                   | The AWS region to create this connection in                       | string | null    | yes      |
 | aws_vpn_gateway_id           | The AWS virtual gateway ID to associate with this connection      | string | null    | yes      |
