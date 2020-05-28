@@ -36,7 +36,8 @@ resource "aws_dx_gateway_association" "main" {
 }
 
 resource "pureport_aws_connection" "main" {
-  name = "conn-${local.connection_id}"
+  name        = "conn-${local.connection_id}"
+  description = var.pureport_network_description
 
   speed             = var.pureport_connection_speed
   high_availability = true

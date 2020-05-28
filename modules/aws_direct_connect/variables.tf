@@ -37,6 +37,11 @@ variable "aws_vpn_gateway_id" {
 //
 // Pureport input values
 //
+variable "pureport_connection_speed" {
+  type        = number
+  description = "The connection speed in Mbps to create"
+}
+
 variable "pureport_network_description" {
   type        = string
   description = "Short description of the Pureport network"
@@ -46,9 +51,4 @@ variable "pureport_network_description" {
 variable "pureport_network_href" {
   type        = string
   description = "Pureport network link to associate with this connection"
-}
-
-variable "pureport_connection_speed" {
-  type        = number
-  description = "The Pureport connection speed in Mbps of the connection to create."
 }

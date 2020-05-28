@@ -31,22 +31,22 @@ module "aws_direct_connect" {
 
 ```
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
-| Name                         | Description                                                       | Type   | Default | Required |
-| ---------------------------- | ----------------------------------------------------------------- | ------ | ------- | -------- |
-| pureport_connection_speed             | The speed of the connect expressed in Mbps                        | number | null    | yes      |
-| aws_account_id               | The AWS account ID to create this connection under                | string | null    | yes      |
-| aws_region                   | The AWS region to create this connection in                       | string | null    | yes      |
-| aws_vpn_gateway_id           | The AWS virtual gateway ID to associate with this connection      | string | null    | yes      |
-| pureport_network_href        | The Pureport network link to associate with this connection       | string | null    | yes      |
-| pureport_network_description | Short description to include wiht the Pureport network definition | string | null    | no       |
-
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| aws\_account\_id | The AWS account ID to use for creating the connection | `string` | n/a | yes |
+| aws\_region | Amazon Web Service region to host this connection | `string` | n/a | yes |
+| aws\_vpn\_gateway\_id | Amazon Web Servce VPN Gateway to associate with the Direct Connect Gateway | `string` | n/a | yes |
+| pureport\_connection\_speed | The connection speed in Mbps to create | `number` | n/a | yes |
+| pureport\_network\_description | Short description of the Pureport network | `string` | `null` | no |
+| pureport\_network\_href | Pureport network link to associate with this connection | `string` | n/a | yes |
 
 ## Outputs
 
-| Name          | Description                                                               |
-| ------------- | ------------------------------------------------------------------------- |
-| connection_id | The auto-generated `connection_id` value used to configure the connection |
+| Name | Description |
+|------|-------------|
+| connection\_id | The generated connection ID for the configured connection |
 
-
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

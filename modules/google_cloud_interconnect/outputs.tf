@@ -16,5 +16,7 @@
 */
 
 output "connection_id" {
-  value = local.connection_id
+  type        = string
+  description = "The generated connection ID for the configured connection"
+  value       = local.connection_id
 }

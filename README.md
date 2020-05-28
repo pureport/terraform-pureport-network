@@ -38,20 +38,23 @@ module "pureport_network" {
 
 ```
 
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
-| Name        | Description                                              | Type   | Default | Required |
-| ----------- | -------------------------------------------------------- | ------ | ------- | -------- |
-| account_id  | The Pureport account ID to create the network under      | string | null    | yes      |
-| name        | The name of the network to create on the Pureport Fabric | string | null    | yes      |
-| description | Short, one line description of the Pureport network      | string | null    | no       |
-
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| account\_id | The Pureport account ID to create the connection for | `string` | n/a | yes |
+| description | Describes the Pureport network to be created | `string` | `null` | no |
+| name | The name of the Pureport network to be created | `string` | n/a | yes |
 
 ## Outputs
 
-| Name | Description                                                               |
-| ---- | ------------------------------------------------------------------------- |
-| href | The Pureport network href to be used to attach connections to the network |
+| Name | Description |
+|------|-------------|
+| href | Link the identifies the network within Pureport |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
 
 ## Contirbuting
 

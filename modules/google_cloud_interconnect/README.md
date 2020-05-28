@@ -8,9 +8,6 @@ Google Cloud Interconnect.
 
 This module is designed for use with Terraform 0.12 or later.
 
-### Requirements
-
-See [versions.tf](versions.tf) for required Terraform providers
 
 ### Example
 
@@ -28,23 +25,22 @@ module "google_cloud_interconnect" {
 }
 
 ```
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 
-| Name                         | Description                                                            | Type                                                               | Default  | Required |
-| --- | --- | --- | --- | --- |
-| pureport_connection_speed             | The speed of the connect expressed in Mbps                             | number                                                             | null     | yes      |
-| gcp_network_name             | The name of the Google Cloud network to associate with this connection | string                                                             | null     | yes      |
-| gcp_network_description      | Short description to include with the Google Cloud network             | string                                                             | null     | no       |
-| gcp_network_routing_mode     | Specifies the network routing mode as either `GLOBAL` or `REGIONAL`    | string                                                             | `GLOBAL` | no       |
-| pureport_network             | name                                                                   | The name of the Pureport network to associate with this connection | string   | null     | yes |
-| pureport_network_description | Short description to include wiht the Pureport network definition      | string                                                             | null     | no       |
-
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| gcp\_network\_description | Short description of the Google Cloud network | `string` | `null` | no |
+| gcp\_network\_name | The Google Cloud network to attach to this connection | `string` | n/a | yes |
+| gcp\_network\_routing\_mode | Set the network-wide routing mode.  Valid values are 'GLOBAL' or 'REGIONAL' | `string` | `"GLOBAL"` | no |
+| pureport\_connection\_speed | The Pureport connection speed in Mbps of the connection to create. | `number` | n/a | yes |
+| pureport\_network\_description | Short description of the Pureport network | `string` | `null` | no |
+| pureport\_network\_href | Pureport network link to associate with this connection | `string` | n/a | yes |
 
 ## Outputs
 
-| Name          | Description                                                               |
-| ------------- | ------------------------------------------------------------------------- |
-| connection_id | The auto-generated `connection_id` value used to configure the connection |
+| Name | Description |
+|------|-------------|
+| connection\_id | The generated connection ID for the configured connection |
 
-
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
