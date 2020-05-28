@@ -57,4 +57,4 @@ cloud native network.
 
 ## Contirbuting
 
-Please see (CONTRIBUTING)[contributing.md] for details on contributing to this project
+Please see [CONTRIBUTING](contributing.md) for details on contributing to this project
