@@ -13,40 +13,38 @@ This module supports:
 Public cloud connectivity implementations are supported as submodules.  See 
 the modules directory for usage.
 
-## Compatibility
+## Usage 
 
 This module is designed for use with Terraform 0.12 or later.
 
-## Requirements
+### Requirements
 
-* Terraform 0.12 or later
-* Pureport Provider 1.1.8 or later
+See [versions.tf](versions.tf) for required Terraform providers
 
-### Provider configuration
+Note: The AWS CLI must be installed on the local machine and configured to 
+confirm the AWS Direct Connect connection.
 
-Please see this [link](http://terraform.io/docs/providers/pureport/index.html) 
-for details on how to configure the Pureport provider using API keys.
-
-## Usage
+### Example
 
 Below is an example of using the Pureport module to easily create a new
 cloud native network.
 
-```
-    module "pureport_network" {
-       source       = "../../privateip/terraform-pureport-modules"
-       account_id   = var.pureport_account_id
-       network_name = "default"
-    }
+```hcl
+module "pureport_network" {
+    source       = "./modules/terraform-pureport-modules"
+    account_id   = var.pureport_account_id
+    network_name = "default"
+}
 
 ```
 
 ## Inputs
 
-| Name         | Description                                              | Type   | Default | Required |
-| --- | --- | --- | --- | --- |
-| account_id   | The Pureport account ID to create the network under      | string | null    | yes      |
-| network_name | The name of the network to create on the Pureport Fabric | stirng | null    | yes      |
+| Name        | Description                                              | Type   | Default | Required |
+| ----------- | -------------------------------------------------------- | ------ | ------- | -------- |
+| account_id  | The Pureport account ID to create the network under      | string | null    | yes      |
+| name        | The name of the network to create on the Pureport Fabric | string | null    | yes      |
+| description | Short, one line description of the Pureport network      | string | null    | no       |
 
 
 ## Outputs
