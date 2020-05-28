@@ -48,7 +48,7 @@ resource "google_compute_interconnect_attachment" "main" {
 resource "pureport_google_cloud_connection" "main" {
   name = "conn-${local.connection_id}"
 
-  speed             = var.connection_speed
+  speed             = var.pureport_connection_speed
   high_availability = true
   location_href     = local.region_to_location[google_compute_router.main.0.region]
   network_href      = var.pureport_network_href
