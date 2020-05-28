@@ -46,7 +46,8 @@ resource "google_compute_interconnect_attachment" "main" {
 }
 
 resource "pureport_google_cloud_connection" "main" {
-  name = "conn-${local.connection_id}"
+  name        = "conn-${local.connection_id}"
+  description = var.pureport_network_description
 
   speed             = var.pureport_connection_speed
   high_availability = true
