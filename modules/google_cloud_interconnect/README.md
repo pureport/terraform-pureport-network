@@ -42,5 +42,6 @@ module "google_cloud_interconnect" {
 | Name | Description |
 |------|-------------|
 | connection\_id | The generated connection ID for the configured connection |
+| pureport\_connection\_name | The generated Pureport connection name |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

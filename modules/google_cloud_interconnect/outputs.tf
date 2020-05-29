@@ -16,7 +16,11 @@
 */
 
 output "connection_id" {
-  type        = string
   description = "The generated connection ID for the configured connection"
   value       = local.connection_id
+}
+
+output "pureport_connection_name" {
+  description = "The generated Pureport connection name"
+  value       = pureport_google_cloud_connection.main.name
 }
