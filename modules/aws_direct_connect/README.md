@@ -8,10 +8,6 @@ using Amazon Web Service Direct Connect
 
 This module is designed for use with Terraform 0.12 or later.
 
-### Requirements
-
-See [versions.tf](versions.tf) for required Terraform providers
-
 ### Example
 
 ```hcl

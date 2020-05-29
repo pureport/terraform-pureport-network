@@ -8,7 +8,6 @@ Google Cloud Interconnect.
 
 This module is designed for use with Terraform 0.12 or later.
 
-
 ### Example
 
 ```hcl
@@ -25,6 +24,7 @@ module "google_cloud_interconnect" {
 }
 
 ```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Inputs
 

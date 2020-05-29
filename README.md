@@ -17,10 +17,6 @@ the modules directory for usage.
 
 This module is designed for use with Terraform 0.12 or later.
 
-### Requirements
-
-See [versions.tf](versions.tf) for required Terraform providers
-
 Note: The AWS CLI must be installed on the local machine and configured to 
 confirm the AWS Direct Connect connection.
 
@@ -31,6 +27,7 @@ cloud native network.
 
 ```hcl
 module "pureport_network" {
+    source       = "github.com/pureport/terraform-pureport-network"
     source       = "./modules/terraform-pureport-modules"
     account_id   = var.pureport_account_id
     network_name = "default"
