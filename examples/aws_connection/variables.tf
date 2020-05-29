@@ -15,7 +15,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-output "connection_id" {
-  description = "The generated connection ID for the configured connection"
-  value       = local.connection_id
+//
+// Amazon Web Service input values
+//
+variable "aws_region" {
+  type        = string
+  description = "The Amazon Web Service region to use"
+}
+
+variable "aws_account_id" {
+  type        = string
+  description = "The Amazon Web Service account id to use"
+}
+
+
+//
+// Pureport input values
+//
+variable "pureport_account_id" {
+  type        = string
+  description = "The Pureport account id used to host the created network"
+}
+
+variable "pureport_connection_speed" {
+  type        = number
+  description = "The Pureport connection speed in Mbps of the connection to create."
 }
