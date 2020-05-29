@@ -57,7 +57,7 @@ module "aws_network" {
   cidr               = "10.0.0.0/16"
 }
 
-// 
+//
 // Ensure the Pureport network exists
 //
 module "pureport_network" {
@@ -77,7 +77,7 @@ module "google_cloud_interconnect" {
   pureport_connection_speed = 50
   pureport_network_href     = module.pureport_network.href
 
-  // Google Cloud network properties 
+  // Google Cloud network properties
   gcp_network_name = module.google_cloud_network.network_name
 }
 

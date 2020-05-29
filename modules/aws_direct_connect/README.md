@@ -1,7 +1,7 @@
 # Pureport Network Module
 
 This submodule is included with the `terraform-pureport-network` module and is
-responsible for creating connections from Amazon Web Service to Pureport Fabric 
+responsible for creating connections from Amazon Web Service to Pureport Fabric
 using Amazon Web Service Direct Connect
 
 ## Usage

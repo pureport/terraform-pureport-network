@@ -35,7 +35,7 @@ variable "gcp_network_name" {
 }
 
 
-// 
+//
 // Amazon Web Service input values
 //
 variable "aws_region" {

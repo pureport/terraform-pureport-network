@@ -14,6 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 variable "name" {
   type        = string
   description = "The name of the Pureport network to be created"
@@ -29,5 +30,3 @@ variable "account_id" {
   type        = string
   description = "The Pureport account ID to create the connection for"
 }
-
-

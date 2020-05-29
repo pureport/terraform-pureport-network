@@ -1,8 +1,8 @@
 # Pureport Terraform Module
 
-This module provides support for building cloud native networks using the 
+This module provides support for building cloud native networks using the
 Pureport Fabric.  It automates the provisioning of virtual cloud native networks
-and cloud connections to those networks.  
+and cloud connections to those networks.
 
 This module supports:
 
@@ -10,14 +10,14 @@ This module supports:
   * Connecting Google Cloud to a Pureport network
   * Connecting Amazon Web Service to a Pureport network
 
-Public cloud connectivity implementations are supported as submodules.  See 
+Public cloud connectivity implementations are supported as submodules.  See
 the modules directory for usage.
 
-## Usage 
+## Usage
 
 This module is designed for use with Terraform 0.12 or later.
 
-Note: The AWS CLI must be installed on the local machine and configured to 
+Note: The AWS CLI must be installed on the local machine and configured to
 confirm the AWS Direct Connect connection.
 
 ### Example
@@ -28,7 +28,6 @@ cloud native network.
 ```hcl
 module "pureport_network" {
     source       = "github.com/pureport/terraform-pureport-network"
-    source       = "./modules/terraform-pureport-modules"
     account_id   = var.pureport_account_id
     network_name = "default"
 }

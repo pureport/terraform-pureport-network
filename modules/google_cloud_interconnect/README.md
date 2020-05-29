@@ -1,7 +1,7 @@
 # Pureport Network Module
 
 This submodule is included with the `terraform-pureport-network` module and is
-responsible for creating connections from Google Cloud to Pureport Fabric using 
+responsible for creating connections from Google Cloud to Pureport Fabric using
 Google Cloud Interconnect.
 
 ## Usage
@@ -18,7 +18,7 @@ module "google_cloud_interconnect" {
   pureport_network_href = module.pureport_network.href
   pureport_connection_speed = var.speed
 
-  // Google Cloud network properties 
+  // Google Cloud network properties
   gcp_network_name = module.google_cloud_network.network_name
 
 }
