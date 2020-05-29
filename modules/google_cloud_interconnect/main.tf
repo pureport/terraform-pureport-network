@@ -40,22 +40,16 @@ resource "google_compute_interconnect_attachment" "main" {
   router                   = element(google_compute_router.main.*.self_link, count.index)
   type                     = "PARTNER"
   edge_availability_domain = "AVAILABILITY_DOMAIN_${count.index + 1}"
-
-  depends_on = [google_compute_router.main]
-  count      = 2
+  count                    = 2
 }
 
 resource "pureport_google_cloud_connection" "main" {
-  name        = "conn-${local.connection_id}"
-  description = var.pureport_network_description
-
-  speed             = var.pureport_connection_speed
-  high_availability = true
-  location_href     = local.region_to_location[google_compute_router.main.0.region]
-  network_href      = var.pureport_network_href
-
+  name                  = "conn-${local.connection_id}"
+  description           = var.pureport_network_description
+  speed                 = var.pureport_connection_speed
+  high_availability     = true
+  location_href         = local.region_to_location[google_compute_router.main.0.region]
+  network_href          = var.pureport_network_href
   primary_pairing_key   = google_compute_interconnect_attachment.main.0.pairing_key
   secondary_pairing_key = google_compute_interconnect_attachment.main.1.pairing_key
-
-  depends_on = [google_compute_interconnect_attachment.main]
 }
