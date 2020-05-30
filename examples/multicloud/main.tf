@@ -28,8 +28,7 @@ provider "aws" {
 }
 
 locals {
-  network_id   = substr(sha1(uuid()), 0, 5)
-  network_name = "network-${local.network_id}"
+  network_id = substr(sha1(uuid()), 0, 5)
 }
 
 //
@@ -40,7 +39,7 @@ module "google_cloud_network" {
   version    = "~> 2.3"
   project_id = var.gcp_project
 
-  network_name            = var.gcp_network_name == "" ? local.network_name : var.gcp_network_name
+  network_name            = "vpc-${local.network_id}"
   routing_mode            = "GLOBAL"
   auto_create_subnetworks = true
   subnets                 = []
@@ -52,7 +51,7 @@ module "google_cloud_network" {
 module "aws_network" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name               = var.aws_network_name == "" ? local.network_name : var.aws_network_name
+  name               = "vpc-${local.network_id}"
   enable_vpn_gateway = true
   cidr               = "10.0.0.0/16"
 }
@@ -61,17 +60,29 @@ module "aws_network" {
 // Ensure the Pureport network exists
 //
 module "pureport_network" {
-  source     = "github.com/pureport/terraform-pureport-network"
-  account_id = var.pureport_account_id
+  //
+  // When using this module in operational environments, you can set the source
+  // to point directly to the Github repo as shown in the below example.  This
+  // example uses a relative path for easy testing.
+  //
+  // source = "github.com/pureport/terraform-pureport-network"
+  source = "../.."
 
-  name = var.pureport_network_name == "" ? local.network_name : var.pureport_network_name
+  name       = "network-${local.network_id}"
+  account_id = var.pureport_account_id
 }
 
 //
 // Ensure the connection from Google Cloud to Pureport exists
 //
 module "google_cloud_interconnect" {
-  source = "git::https://github.com/pureport/terraform-pureport-network//modules/google_cloud_interconnect"
+  //
+  // When using this module in operational environments, you can set the source
+  // to point directly to the Github repo as shown in the below example.  This
+  // example uses a relative path for easy testing.
+  //
+  // source = "git::https://github.com/pureport/terraform-pureport-network//modules/google_cloud_interconnect"
+  source = "../../modules/google_cloud_interconnect"
 
   // Pureport network properties
   pureport_connection_speed = 50
@@ -85,7 +96,13 @@ module "google_cloud_interconnect" {
 // Ensure the connection from Amazon Web Service to Pureport exists
 //
 module "aws_direct_connect" {
-  source = "git::https://github.com/pureport/terraform-pureport-network//modules/aws_direct_connect"
+  //
+  // When using this module in operational environments, you can set the source
+  // to point directly to the Github repo as shown in the below example.  This
+  // example uses a relative path for easy testing.
+  //
+  // source = "git::https://github.com/pureport/terraform-pureport-network//modules/aws_direct_connect"
+  source = "../../modules/aws_direct_connect"
 
   // Pureport network properties
   pureport_connection_speed = 50
