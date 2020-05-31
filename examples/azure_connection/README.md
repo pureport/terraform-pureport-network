@@ -24,7 +24,7 @@ This example demonstrates how to create a connection to Azure
 3. Update input variables (optional)
 
 ```hcl
-  azure_peering_location    = "atlanta"
+  azure_peering_location    = "dallas"
   pureport_connection_speed = 100
 ```
 
